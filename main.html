@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>林口國中查成績系統V2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <link rel="icon" href="https://dong-chen-1031.github.io/LKGE_WEEB/%E5%9C%96%E7%89%87/image-removebg-preview.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-auth.js"></script>
+    <style>
+        .login {
+            width: 6%;
+            margin-left: 93%;
+        }
+        .login-menu{
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+        .modal-header .btn-abc {
+            padding: calc(var(--bs-modal-header-padding-y) * .5) calc(var(--bs-modal-header-padding-x) * .5);
+            margin: calc(-.5 * var(--bs-modal-header-padding-y)) calc(-.5 * var(--bs-modal-header-padding-x)) calc(-.5 * var(--bs-modal-header-padding-y)) auto;
+            background: transparent var(--bs-btn-close-bg) center/1em auto no-repeat;
+            border: 0;
+        }
+    </style>
+    <script>
+        firebase.initializeApp(
+            {
+            projectId: "lkjh-score-v2"}
+        );
+        var db = firebase.firestore();
+    </script>
+</head>
+
+<body>
+    <button type="button" class="btn btn-primary login" data-bs-toggle="modal" data-bs-target="#login-menu">
+        <i class="bi bi-box-arrow-in-right"></i> 登入
+    </button>
+
+    <div class="modal fade login-menu" id="login-menu" tabindex="-1" aria-labelledby="exampleModalCenterTitle"
+        style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-cc btn-abc" style="--bs-btn-close-bg:none;cursor: auto;" onclick=""></button>
+                    
+                    <h1 class="modal-title fs-5" id="exampleModalCenterTitle">
+                        登入方式
+                    </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="關閉"></button>
+                </div>
+                <div class="modal-body">
+                    <button type="button" class="btn btn-outline-primary"><i class="bi bi-google"></i> 使用Google登入</button>
+                    <br>
+                    <br>
+                    <button type="button" class="btn btn-outline-primary"><i class="bi bi-people-fill"></i>  使用 訪客 登入</button>
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="https://www.flaticon.com/free-icons/score" title="score icons">Score icons created by Freepik - Flaticon</a>
+</body>
+
+</html>

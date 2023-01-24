@@ -4,3 +4,5 @@
 ### 一個全新的介面
 #
 #### ❌VPN
+
+https://dong-chen-1031.github.io/LKJH-SCORE-V2/

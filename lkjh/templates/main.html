@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>林口國中查成績系統V2</title>
+    <title>林中成績通</title>
     <link rel="icon" href="https://dong-chen-1031.github.io/LKJH-SCORE-V2/logo.png" type="image/x-icon">
 
     <!-- bootstrap -->
@@ -27,6 +27,8 @@
     <style>
         .the_top{
             margin: 1%;
+            margin-left: 10%;
+            margin-right: 10%;
             font-family: 'Noto Sans TC', sans-serif;
 
         }
@@ -35,7 +37,7 @@
             text-align: left;
         }
         .login_btn {
-            width: 100%;
+            width: 35%;
         }
         .login-menu{
             margin-left: auto;
@@ -60,21 +62,28 @@
 </head>
 
 <body>
-    <div class="container text-center the_top">
-        <div class="row">
-          <div class="col title">
-            林口國中查成績系統V2
+        <div class="row text-center the_top">
+          <div class="col">
+            <img src="https://dong-chen-1031.github.io/LKJH-SCORE-V2/logo.png" alt="成績" style="height: 7%;">
+            林中成績通
+            <img src="https://dong-chen-1031.github.io/LKJH-SCORE-V2/logo.png" alt="成績" style="height: 7%;">
+
           </div>
           <div class="col">
-            Column
+             探索
           </div>
-          <div class="col-md-auto">
+          <div class="col">
+            <input class="form-control" type="text" placeholder="Default input" aria-label="default input example">
+          </div>
+          <div class="col">
+            簡介
+          </div>
+          <div class="col">
             <button type="button" class="btn btn-primary login_btn" data-bs-toggle="modal" data-bs-target="#login-menu">
                 <i class="bi bi-box-arrow-in-right"></i> 登入
             </button>
           </div>
         </div>
-      </div>
     
 
     <div class="modal fade login-menu" id="login-menu" tabindex="-1" aria-labelledby="exampleModalCenterTitle"

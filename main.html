@@ -5,20 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>林口國中查成績系統V2</title>
+    <link rel="icon" href="https://dong-chen-1031.github.io/LKJH-SCORE-V2/logo.png" type="image/x-icon">
+
+    <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
-    <link rel="icon" href="https://dong-chen-1031.github.io/LKJH-SCORE-V2/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <!-- firebase -->
     <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-auth.js"></script>
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400&display=swap" rel="stylesheet">
     <style>
-        .login {
-            width: 6%;
-            margin-left: 93%;
+        .the_top{
+            margin: 1%;
+            font-family: 'Noto Sans TC', sans-serif;
+
+        }
+        .title{
+            font-size: 28px;
+            text-align: left;
+        }
+        .login_btn {
+            width: 100%;
         }
         .login-menu{
             margin-left: auto;
@@ -30,6 +47,7 @@
             margin: calc(-.5 * var(--bs-modal-header-padding-y)) calc(-.5 * var(--bs-modal-header-padding-x)) calc(-.5 * var(--bs-modal-header-padding-y)) auto;
             background: transparent var(--bs-btn-close-bg) center/1em auto no-repeat;
             border: 0;
+            
         }
     </style>
     <script>
@@ -37,14 +55,27 @@
             {
             projectId: "lkjh-score-v2"}
         );
-        var db = firebase.firestore();
+        var db = firebase.firestore(); 
     </script>
 </head>
 
 <body>
-    <button type="button" class="btn btn-primary login" data-bs-toggle="modal" data-bs-target="#login-menu">
-        <i class="bi bi-box-arrow-in-right"></i> 登入
-    </button>
+    <div class="container text-center the_top">
+        <div class="row">
+          <div class="col title">
+            林口國中查成績系統V2
+          </div>
+          <div class="col">
+            Column
+          </div>
+          <div class="col-md-auto">
+            <button type="button" class="btn btn-primary login_btn" data-bs-toggle="modal" data-bs-target="#login-menu">
+                <i class="bi bi-box-arrow-in-right"></i> 登入
+            </button>
+          </div>
+        </div>
+      </div>
+    
 
     <div class="modal fade login-menu" id="login-menu" tabindex="-1" aria-labelledby="exampleModalCenterTitle"
         style="display: none;" aria-hidden="true">
@@ -62,7 +93,7 @@
                     <button type="button" class="btn btn-outline-primary"><i class="bi bi-google"></i> 使用Google登入</button>
                     <br>
                     <br>
-                    <button type="button" class="btn btn-outline-primary"><i class="bi bi-people-fill"></i>  使用 訪客 登入</button>
+                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#login-visitor"><i class="bi bi-people-fill"></i>  使用 訪客 登入</button>
                 </div>
                 <div class="modal-footer">
                 </div>
@@ -70,7 +101,49 @@
         </div>
     </div>
 
-<a href="https://dong-chen-1031.github.io/LKJH-SCORE-V2/thank.html" target="_blank" rel="銘謝">銘謝</a>    
+    <div class="modal fade login-menu" id="login-visitor" tabindex="-1" aria-labelledby="exampleModalCenterTitle"
+        style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-cc btn-abc" style="--bs-btn-close-bg:none;cursor: auto;" onclick=""></button>
+                    
+                    <h1 class="modal-title fs-5" id="exampleModalCenterTitle">
+                        登入方式
+                    </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="關閉"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
+                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                    
+                    <p><i class="bi bi-arrow-up"></i>帳號即為學號</p>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-lock-fill"></i></span>
+                        <input type="password" class="form-control" placeholder="password" aria-label="password" aria-describedby="basic-addon1">
+                    </div>
+                    <p><i class="bi bi-arrow-up"></i>密碼即為身分證字號的第一個字母重複兩次+身分證字好後六碼(如：ff456789)</p>
+                
+                    <div>
+
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <span>我以詳閱並同意<a href="rule.html" target="_blank" rel="使用者條款">使用者條款</a></span>
+                    </div>
+                    <br>
+                    
+                    <button type="button" class="btn btn-primary">登入</button>
+                </div>  
+                
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+<a href="thank.html" target="_blank" rel="銘謝">銘謝</a>
+
+<a href="#" data-bs-toggle="tooltip" data-bs-title="Default tooltip">fefe</a>   
 </body>
 
 </html>

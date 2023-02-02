@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def home(request):
-    return HttpResponse('fff')
+    return render(request,'main.html',locals())
 
 def test1(request):
-    return render(request,'main.html',locals())
+    return HttpResponse('fff')
 # Create your views here.
